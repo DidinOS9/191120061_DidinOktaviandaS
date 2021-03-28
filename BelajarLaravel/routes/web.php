@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello', function () {
+    return 'Hello World !';
+});
+
+Route::get('/belajar', function () {
+    echo '<h1>Hello World</h1>';
+    echo '<p>Sedang belajar Laravel</p>';
+});
+
+Route::get('page/{nomor}', function($nomor){
+    return 'Ini Halaman ke-' . $nomor;
+});
