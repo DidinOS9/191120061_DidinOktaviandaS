@@ -27,3 +27,10 @@ Route::get('/belajar', function () {
 Route::get('page/{nomor}', function($nomor){
     return 'Ini Halaman ke-' . $nomor;
 });
+
+//Route::get('user', 'ManagementUserController@index");
+Route::resource('user', 'ManagementUserController');
+
+Route::get("/home", function(){
+    return view("home");
+});
