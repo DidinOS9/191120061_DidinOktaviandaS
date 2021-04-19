@@ -11,6 +11,10 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,19 +32,24 @@ Route::get('page/{nomor}', function($nomor){
     return 'Ini Halaman ke-' . $nomor;
 });
 
-//Route::get('user', 'ManagementUserController@index");
-Route::resource('user', 'ManagementUserController');
+// Route::get('user', 'ManagementUserController@index"); 
+// Route::resource('user', 'ManagementUserController');
 
 Route::get("/home", function(){
     return view("home");
 });
 
+Auth::routes();
+
 Route::group(['namespace' => 'Frontend'], function()
     {
+        Route::get('/', 'HomeController@index');
         Route::resource('home', 'HomeController');
     });
-    
-Route::group(['namespace' => 'Backend'], function()
-{
-    Route::resource('dashboard', 'DashboardController');
-});
+
+Route::group(['middleware' => ['web','auth']], function() {
+    Route::group(['namespace' => 'Backend'], function()
+    {
+        Route::resource('dashboard', 'DashboardController');
+    });
+});    
