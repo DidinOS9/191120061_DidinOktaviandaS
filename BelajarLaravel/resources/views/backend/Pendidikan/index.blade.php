@@ -27,10 +27,57 @@
                         @endif
                         <a href="{{route('pendidikan.create') }}"><button class="btn btn-primary" type="button"><i
                              class="fa fa-plus"> Tambah</i></button></a>
+                             <br><br>
+                             <table class="table table-striped table-advance table-hover">
+                                 <tbody>
+                                     <tr>
+                                         <th><i class="icon-bag"></i>Nama</th>
+                                         <th><i class="icon-document"></i>Tingkatan</th>
+                                         <th><i class="icon-calendar"></i>Tahun Masuk</th>
+                                         <th><i class="icon-calendar"></i>Tahun Keluar</th>
+                                         <th><i class="icon-cogs"></i>Action</th>
+                                     </tr>
+                                     @foreach ($pendidikan as $item)
+                                         <tr>
+                                             <td>{{$item->nama}}</td>
+                                             <td>
+                                                @if ($item->tingkatan==1)
+                                                    TK
+                                                @elseif ($item->tingkatan==2)
+                                                    SD
+                                                @elseif ($item->tingkatan==3)
+                                                    SMP
+                                                @elseif ($item->tingkatan==4)
+                                                    SMA
+                                                @elseif ($item->tingkatan==5)
+                                                    D3
+                                                @elseif ($item->tingkatan==6)
+                                                    D4/S1
+                                                @elseif ($item->tingkatan==7)
+                                                    S2
+                                                @elseif ($item->tingkatan==8)
+                                                    S3
+                                                @endif
+                                             </td>
+                                             <td>{{$item->tahun_masuk}}</td>
+                                             <td>{{$item->tahun_keluar}}</td>
+                                             <td>
+                                                 <div class="btn-group">
+                                                     <a href="" class="btn btn-warning">
+                                                         <i class="fa fa-edit"></i></a>
+                                                        <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button> 
+                                                     </form> 
+                                                 </div>
+                                             </td>
+                                         </tr>
+                                     @endforeach
+                                 </tbody>
+                             </table>
                     </div>
                 </section>
             </div>
         </div>
+        <!-- page end -->
     </section>    
 </section>    
 @endsection

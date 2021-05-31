@@ -102,7 +102,7 @@
         format: "yyyy",
         viewMode: "years",
         minViewMode: "years"
-    });$('tahun_keluar').datepicker({
+    });$('#tahun_keluar').datepicker({
         format: "yyyy",
         viewMode: "years",
         minViewMode: "years"
