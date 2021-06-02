@@ -97,7 +97,7 @@
 <link rel="stylesheet" href="{{ asset('backend/css/bootstrap-datepicker.css')}}">    
 @endpush
 @push('content-js')
-<script href="{{ asset('backend/js/bootstrap-datepicker.js')}}"></script>
+<script src="{{ asset('backend/js/bootstrap-datepicker.js')}}"></script>
 <script type="text/javascript">
     $('#tahun_masuk').datepicker({
         format: "yyyy",
