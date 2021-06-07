@@ -36,5 +36,12 @@ class PendidikanController extends Controller
         return redirect()->route('pendidikan.index')
             ->with('success','Pendidikan berhasil diperbaharui');
     }
+
+    public function destroy(Pendidikan $pendidikan)
+    {
+        $pendidikan->delete();
+        return redirect()->route('pendidikan.index')
+            ->with('success','Data Pendidikan berhasil dihapus');
+    }
 }
  

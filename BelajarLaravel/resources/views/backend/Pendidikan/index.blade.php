@@ -63,10 +63,19 @@
                                              <td>{{$item->tahun_keluar}}</td>
                                              <td>
                                                  <div class="btn-group">
-                                                     <a href="{{ route('pendidikan.edit' ,$item->id) }}" class="btn btn-warning">
+                                                    {{-- <form> 
+                                                        <a href="{{ route('pendidikan.edit' ,$item->id) }}" class="btn btn-warning">
                                                          <i class="fa fa-edit"></i></a>
                                                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button> 
-                                                     </form> 
+                                                     </form> --}}
+                                                    <form action="{{ route('pendidikan.destroy',$item->id) }}" method="POST">
+                                                        <a class="btn btn-warning" href="{{ route('pendidikan.edit', $item->id) }}"><i class="fa fa-edit"></i></a>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini ?')">
+                                                            <i class="fa fa-trash-o"></i></button>
+                                                    </form>
+
                                                  </div>
                                              </td>
                                          </tr>
